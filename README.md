@@ -79,7 +79,7 @@ You can use Docker Machine to control all of your Docker Swarms.
   
 - Run this command on the swarm master:   
 
-  sudo docker swarm init --advertise-addr IP-ADDRESS-OF-SWARM-MASTER
+  sudo docker swarm init --advertise-addr IP-ADDRESS-OF-SWARM-MASTER (10.0.0.99 in this example)
   
   Write down the token given out for the swarm to use in the next section.
   
