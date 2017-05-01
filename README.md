@@ -46,7 +46,8 @@ You can use Docker Machine to control all of your Docker Swarms.
 
   docker-machine ssh SWARM-MASTER
   
-- Determine the interal IP of the swarm master.  In this case the IP is 10.0.0.99.  You can figure this out by running ifconfig:
+- Determine the internal IP of the swarm master.  In this case the IP is 10.0.0.99.  You can figure this out by running  
+  ifconfig:
 
   ubuntu@helloworld-swarm-master:~$ ifconfig
   docker0   Link encap:Ethernet  HWaddr 02:42:32:78:71:25  
