@@ -42,9 +42,9 @@ You can use Docker Machine to control all of your Docker Swarms.
 
   https://github.com/polinchw/docker-tools/blob/master/docker-machine/docker-swarm/aws/bash-scripts/create-swarm-instances.sh
   
-- ssh into the swarm mananger:
+- ssh into the swarm master:
 
-  docker-machine ssh SWARM-MANANGER
+  docker-machine ssh SWARM-MASTER
   
 - Run this command on the swarm mananger:   
 
@@ -59,7 +59,7 @@ You can use Docker Machine to control all of your Docker Swarms.
   
   Once on the worker run this command:
   
-  sudo docker swarm join --token TOKEN_FROM_THE_MASTER_SECTION IP-ADDRESS-OF-SWARM-MANANGER:2377
+  sudo docker swarm join --token TOKEN_FROM_THE_MASTER_SECTION IP-ADDRESS-OF-SWARM-MASTER:2377
 
 ## Run a Docker Service on your new Swarm
 - ssh into the swarm master:
