@@ -19,8 +19,10 @@ You can use Docker Machine to control all of your Docker Swarms.
   sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
  
 ## Subnet Setup
-- You'll want to run your Docker Swarm for an app (aka Docker Service) on its own subnet. To do this on AWS create a new VPC for   
-  your swarm and write down it's VPC id.
+- You'll want to run your Docker Swarm for an app (aka Docker Service) on its own subnet. 
+  To do this on AWS create a new VPC for your swarm and write down its VPC id.
+  
+  http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenarios.html  
   
 ## Create a Docker Swarm Manager and Instances
 - ssh into your Docker Machine VM and clone this repo:
