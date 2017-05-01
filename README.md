@@ -27,7 +27,9 @@ You can use Docker Machine to control all of your Docker Swarms.
 - Open the following ports:
   
     TCP port 2377 for cluster management communications
+    
     TCP and UDP port 7946 for communication among nodes
+    
     UDP port 4789 for overlay network traffic
 
   
