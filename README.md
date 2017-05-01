@@ -37,7 +37,7 @@ You can use Docker Machine to control all of your Docker Swarms.
   
 - Run this command on the swarm mananger:   
 
-  sudo docker swarm init --advertise-addr <IP-ADDRESS-OF-SWARM-MANANGER>
+  sudo docker swarm init --advertise-addr <IP-ADDRESS-OF-SWARM-MANAGER>
   
   Write down the token given out for the swarm to use in the next section.
   
@@ -53,7 +53,7 @@ You can use Docker Machine to control all of your Docker Swarms.
 ## Run a Docker Service on your new Swarm
 - ssh into the swarm manager:
 
-  docker-machine ssh <swarm-manager>
+  docker-machine ssh SWARM-MANANGER
   
 - Run a Docker Service on the swarm with this (example) command:
 
