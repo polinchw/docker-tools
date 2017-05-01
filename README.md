@@ -24,6 +24,13 @@ You can use Docker Machine to control all of your Docker Swarms.
   
   http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenarios.html  
   
+- Open the following ports:
+  
+    TCP port 2377 for cluster management communications
+    TCP and UDP port 7946 for communication among nodes
+    UDP port 4789 for overlay network traffic
+
+  
 ## Create a Docker Swarm Master and Instances
 - ssh into your Docker Machine VM and clone this repo:
 
