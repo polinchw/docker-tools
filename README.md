@@ -43,7 +43,7 @@ You can use Docker Machine to control all of your Docker Swarms.
   
   Write down the token given out for the swarm to use in the next section.
   
-## Join Swarm Worker Instances to the Mananger
+## Join Swarm Worker Instances to the Master
 - ssh into each worker instance of the swarm from the Docker Machine with this command:
  
   docker-machine ssh SWARM-WORKER-NODE
