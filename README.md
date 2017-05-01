@@ -5,7 +5,7 @@ Provision Docker containers on Docker Swarm with the help of Docker Machine.  Th
 - Docker Machine
 - Subnet setup 
 - Create a Docker Swarm master and instances
-- Join Swarm Worker Instances to the Swarm Master
+- Join Swarm worker instances to the Swarm Master
 - Run a Docker Service on your new swarm
 - Add a load balancer
 
@@ -84,7 +84,7 @@ You can use Docker Machine to control all of your Docker Swarms.
   
   Write down the token given out for the swarm to use in the next section.
   
-## Join Swarm Worker Instances to the Master
+## Join Swarm worker instances to the master
 - ssh into each worker instance of the swarm from the Docker Machine with this command:
  
   docker-machine ssh SWARM-WORKER-NODE
@@ -93,7 +93,7 @@ You can use Docker Machine to control all of your Docker Swarms.
   
   sudo docker swarm join --token TOKEN_FROM_THE_MASTER_SECTION IP-ADDRESS-OF-SWARM-MASTER:2377
 
-## Run a Docker Service on your new Swarm
+## Run a Docker Service on your new swarm
 - ssh into the swarm master:
 
   docker-machine ssh SWARM-MASTER
