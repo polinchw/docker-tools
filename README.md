@@ -11,7 +11,7 @@ Provision Docker containers on Docker Swarm with the help of Docker Machine.  Th
 
 ## Docker Machine
 You can use Docker Machine to control all of your Docker Swarms.  
-- Create a Linux VM that has the Docker runtime installed.
+- Create a Linux VM/EC2 Instance that has the Docker runtime installed.
 - Run this command on your Linux VM to install Docker Machine:
 
   curl -L https://github.com/docker/machine/releases/download/v0.10.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine &&
