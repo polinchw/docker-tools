@@ -3,7 +3,7 @@ Provision Docker containers on Docker Swarm with the help of Docker Machine.  Th
 
 ## Outline
 - Docker Machine
-- Subnet Setup 
+- Subnet setup 
 - Create a Docker Swarm master and instances
 - Join Swarm Worker Instances to the Swarm Master
 - Run a Docker Service on your new swarm
@@ -18,7 +18,7 @@ You can use Docker Machine to control all of your Docker Swarms.
   chmod +x /tmp/docker-machine &&
   sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
  
-## Subnet Setup
+## Subnet setup
 - You'll want to run your Docker Swarm for an app (aka Docker Service) on its own subnet. 
   To do this on AWS create a new VPC for your swarm and write down its VPC id.
   
