@@ -1,5 +1,5 @@
 # docker-tools
-Provision Docker containers on Docker Swarm with the help of Docker Machine.  These tools will initially be for running a Docker Swarm on AWS.  Later I'll add more generic ways of run a Swarm.
+Provision Docker containers on Docker Swarm with the help of Docker Machine.  These tools will initially be for running a Docker Swarm on AWS.  Later I'll add more generic ways of running a swarm.
 
 ## Outline
 - Docker Machine
