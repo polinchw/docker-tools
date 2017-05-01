@@ -4,9 +4,9 @@ Provision Docker containers on Docker Swarm with the help of Docker Machine.  Th
 ## Outline
 - Docker Machine
 - Subnet Setup 
-- Create a Docker Swarm Master and Instances
+- Create a Docker Swarm master and instances
 - Join Swarm Worker Instances to the Swarm Master
-- Run a Docker Service on your new Swarm
+- Run a Docker Service on your new swarm
 - Add a load balancer
 
 ## Docker Machine
@@ -33,7 +33,7 @@ You can use Docker Machine to control all of your Docker Swarms.
     UDP port 4789 for overlay network traffic
 
   
-## Create a Docker Swarm Master and Instances
+## Create a Docker Swarm master and instances
 - ssh into your Docker Machine VM and clone this repo:
 
   https://github.com/polinchw/docker-tools  
@@ -46,7 +46,7 @@ You can use Docker Machine to control all of your Docker Swarms.
 
   docker-machine ssh SWARM-MASTER
   
-- Run this command on the swarm mananger:   
+- Run this command on the swarm master:   
 
   sudo docker swarm init --advertise-addr IP-ADDRESS-OF-SWARM-MASTER
   
