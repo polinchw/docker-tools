@@ -58,7 +58,7 @@ You can use Docker Machine to control all of your Docker Swarms.
           collisions:0 txqueuelen:0 
           RX bytes:0 (0.0 B)  TX bytes:648 (648.0 B)
 
- docker_gwbridge Link encap:Ethernet  HWaddr 02:42:90:12:4f:32  
+  docker_gwbridge Link encap:Ethernet  HWaddr 02:42:90:12:4f:32  
           inet addr:172.18.0.1  Bcast:0.0.0.0  Mask:255.255.0.0
           inet6 addr: fe80::42:90ff:fe12:4f32/64 Scope:Link
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
