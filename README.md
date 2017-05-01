@@ -60,3 +60,8 @@ You can use Docker Machine to control all of your Docker Swarms.
   sudo docker service create --replicas 2 --name helloworld -p:8080:8080 polinchw/run-helloworld
 
 ## Add a load balancer
+- Front your new Docker Swarm with a load balancer.  Here is an example on how to set up an https load balancer.  
+  Point the load balancer to the swarm worker(s), port 8080. 
+  
+  http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html
+  
