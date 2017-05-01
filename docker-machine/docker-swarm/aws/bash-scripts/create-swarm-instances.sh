@@ -26,6 +26,3 @@ while [  $COUNTER -lt $NODES ]; do
        echo The counter is $COUNTER
        let COUNTER=COUNTER+1
 done
-
-#docker-machine create --driver amazonec2 --amazonec2-vpc-id $AWS_VPC_ID $APP_NAME-node-01
-#docker-machine create --driver amazonec2 --amazonec2-vpc-id $AWS_VPC_ID $APP_NAME-node-02
