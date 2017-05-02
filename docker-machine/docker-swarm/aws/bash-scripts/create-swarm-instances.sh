@@ -29,6 +29,8 @@ done
 
 echo "Swarm master IP:"
 docker-machine inspect $APP_NAME-swarm-master | grep PrivateIPAddress
+MASTER_IP=$(docker-machine inspect $APP_NAME-swarm-master | grep PrivateIPAddress)
+echo ${MASTER_IP:15:7}
 echo "Run this command to init the swarm:"
 echo "docker-machine ssh $APP_NAME-swarm-master 'sudo docker swarm init --advertise-addr IP-ADDRESS-OF-SWARM-MASTER'"
 echo "Run this command to add instances to the swarm:"
