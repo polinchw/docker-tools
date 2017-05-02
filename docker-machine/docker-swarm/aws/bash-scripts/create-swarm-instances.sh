@@ -29,7 +29,7 @@ while [  $COUNTER -lt $NODES ]; do
 done
 
 echo "swarm master IP:"
-docker-machine ssh $APP_NAME-swarm-master 'ifconfig | grep "inet addr" | grep "255.255.255.0"'
+docker-machine ssh $APP_NAME-swarm-master 'ifconfig | grep "inet addr" | grep "255.255.255.0'
 echo "Run these commands:"
 echo "docker-machine ssh $APP_NAME-swarm-master 'sudo docker swarm init --advertise-addr IP-ADDRESS-OF-SWARM-MASTER'"
 echo "docker-machine ssh $APP_NAME-node-0 'sudo docker swarm join --token TOKEN_FROM_THE_MASTER_SECTION IP-ADDRESS-OF-SWARM-MASTER:2377'"
