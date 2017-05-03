@@ -27,13 +27,17 @@ while [  $COUNTER -lt $NODES ]; do
        let COUNTER=COUNTER+1
 done
 
-echo "Swarm master IP:"
-docker-machine inspect $APP_NAME-swarm-master | grep PrivateIPAddress
-MASTER_IP=$(docker-machine inspect $APP_NAME-swarm-master | grep PrivateIPAddress)
-echo ${MASTER_IP:15:7}
+#Figure out the ports then init the Swarm...
+MASTER_IPS=$(docker-machine ssh $APP_NAME-swarm-master 'hostname -I')
+IFS=', ' read -r -a array <<< "$MASTER_IPS"
+MASTER_INTERAL_IP=${array[0]}
+echo "IPs:"
+echo ${MASTER_IPS}
+echo "$APP_NAME-swarm-master internal ip:"
+echo "$MASTER_INTERAL_IP"
 echo "Run this command to init the swarm:"
-echo "docker-machine ssh $APP_NAME-swarm-master 'sudo docker swarm init --advertise-addr IP-ADDRESS-OF-SWARM-MASTER'"
+echo "docker-machine ssh $APP_NAME-swarm-master 'sudo docker swarm init --advertise-addr $MASTER_INTERAL_IP'"
 echo "Run this command to add instances to the swarm:"
-echo "docker-machine ssh $APP_NAME-node-0 'sudo docker swarm join --token TOKEN_FROM_THE_MASTER_SECTION IP-ADDRESS-OF-SWARM-MASTER:2377'"
+echo "docker-machine ssh $APP_NAME-node-0 'sudo docker swarm join --token TOKEN_FROM_THE_MASTER_SECTION $MASTER_INTERAL_IP:2377'"
 echo "Run this command to add a Docker Service to the swarm:"
 echo "docker-machine ssh $APP_NAME-swarm-master 'sudo docker service create --replicas 2 --name $APP_NAME -p:8080:8080 polinchw/$APP_NAME'"
