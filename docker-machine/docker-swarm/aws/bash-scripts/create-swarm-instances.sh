@@ -35,8 +35,8 @@ echo "IPs:"
 echo ${MASTER_IPS}
 echo "$APP_NAME-swarm-master internal ip:"
 echo "$MASTER_INTERAL_IP"
-echo "Run this command to init the swarm:"
-echo "docker-machine ssh $APP_NAME-swarm-master 'sudo docker swarm init --advertise-addr $MASTER_INTERAL_IP'"
+echo "Init the swarm:"
+docker-machine ssh $APP_NAME-swarm-master 'sudo docker swarm init --advertise-addr $MASTER_INTERAL_IP'
 echo "Run this command to add instances to the swarm:"
 echo "docker-machine ssh $APP_NAME-node-0 'sudo docker swarm join --token TOKEN_FROM_THE_MASTER_SECTION $MASTER_INTERAL_IP:2377'"
 echo "Run this command to add a Docker Service to the swarm:"
