@@ -27,7 +27,7 @@ docker-machine create --driver amazonec2 --amazonec2-vpc-id $AWS_VPC_ID --amazon
 echo "Creating Swarm Instances..."
 COUNTER=0
 while [  $COUNTER -lt $NODES ]; do
-       docker-machine create --driver amazonec2 --amazonec2-vpc-id $AWS_VPC_ID $APP_NAME-node-$COUNTER
+       docker-machine create --driver amazonec2 --amazonec2-vpc-id $AWS_VPC_ID -amazonec2-subnet-id $SUB_NET $APP_NAME-node-$COUNTER
        let COUNTER=COUNTER+1
 done
 
