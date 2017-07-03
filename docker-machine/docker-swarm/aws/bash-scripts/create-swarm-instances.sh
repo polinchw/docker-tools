@@ -2,23 +2,24 @@
 AWS_ACCESS_KEY_ID=$1
 AWS_SECRET_ACCESS_KEY=$2
 AWS_VPC_ID=$3
-APP_NAME=$4
-NODES=$5
-APP_REG=$6
-SUB_NET=$7
+SUB_NET=$4
+APP_REG=$5
+APP_NAME=$6
+NODES=$7
+
 
 if [ -z "$AWS_ACCESS_KEY_ID"  ] || [ -z "$AWS_SECRET_ACCESS_KEY" ] || [ -z "$AWS_VPC_ID" ] || [ -z "$APP_NAME" ] || [ -z "$APP_REG" ] || [ -z "$SUB_NET" ]; then
-  echo "usage: ./create-swarm-instances.sh <AWS_ACCESS_KEY_ID> <AWS_SECRET_ACCESS_KEY> <AWS_VPC_ID> <APP_NAME> <NODES> <APP_REG> <SUB_NET>"
+  echo "usage: ./create-swarm-instances.sh <AWS_ACCESS_KEY_ID> <AWS_SECRET_ACCESS_KEY> <AWS_VPC_ID> <SUB_NET> <APP_REG> <APP_NAME> <NODES>  "
   exit 1;
 fi
 
-echo '$AWS_ACCESS_KEY_ID = ' $1
-echo '$AWS_SECRET_ACCESS_KEY = ' $2
-echo '$AWS_VPC_ID = ' $3
-echo '$APP_NAME = ' $4
-echo '$NODES = ' $5
-echo '$APP_REG = ' $6
-echo '$SUB_NET = ' $7
+#echo '$AWS_ACCESS_KEY_ID = ' $1
+#echo '$AWS_SECRET_ACCESS_KEY = ' $2
+#echo '$AWS_VPC_ID = ' $3
+#echo '$APP_NAME = ' $4
+#echo '$NODES = ' $5
+#echo '$APP_REG = ' $6
+#echo '$SUB_NET = ' $7
 
 echo "Creating Swarm Master...."
 docker-machine create --driver amazonec2 --amazonec2-vpc-id $AWS_VPC_ID --amazonec2-subnet-id $SUB_NET $APP_NAME-swarm-master
