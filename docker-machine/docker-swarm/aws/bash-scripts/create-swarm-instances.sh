@@ -11,6 +11,7 @@ SEC_GROUP_ID=$9
 
 if [ -z "$AWS_ACCESS_KEY_ID"  ] || [ -z "$AWS_SECRET_ACCESS_KEY" ] || [ -z "$AWS_VPC_ID" ] || [ -z "$APP_NAME" ] || [ -z "$APP_REG" ] || [ -z "$SUB_NET" ]; then
   echo "usage: ./create-swarm-instances.sh <AWS_ACCESS_KEY_ID> <AWS_SECRET_ACCESS_KEY> <AWS_VPC_ID> <SUB_NET> <APP_REG> <APP_NAME> <NODES> <AMI_ID> <SEC_GROUP_ID>  "
+  eche "example: ./create-swarm-instances.sh AKIAJB7DZD4I6QA2XBRA xxx vpc-9dc174e4 subnet-5501b679 polinchw monitor-frontend 1 ami-8887be9e WebServerSecurityGroup"
   exit 1;
 fi
 
