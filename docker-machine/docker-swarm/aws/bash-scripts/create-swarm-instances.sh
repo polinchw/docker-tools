@@ -10,7 +10,7 @@ AMI_ID=$8
 SEC_GROUP_ID=$9
 
 if [ -z "$AWS_ACCESS_KEY_ID"  ] || [ -z "$AWS_SECRET_ACCESS_KEY" ] || [ -z "$AWS_VPC_ID" ] || [ -z "$APP_NAME" ] || [ -z "$APP_REG" ] || [ -z "$SUB_NET" ]; then
-  echo "usage: ./create-swarm-instances.sh <AWS_ACCESS_KEY_ID> <AWS_SECRET_ACCESS_KEY> <AWS_VPC_ID> <SUB_NET> <APP_REG> <APP_NAME> <NODES> <AMI_ID>  "
+  echo "usage: ./create-swarm-instances.sh <AWS_ACCESS_KEY_ID> <AWS_SECRET_ACCESS_KEY> <AWS_VPC_ID> <SUB_NET> <APP_REG> <APP_NAME> <NODES> <AMI_ID> <SEC_GROUP_ID>  "
   exit 1;
 fi
 
