@@ -50,11 +50,12 @@ echo "swarm init results:"
 #    --token SWMTKN-1-01ifqiy6q1nrq8uh48ajen568058sxz9oo78bge7taxqrfgqqa-ba7swkzlr0segdflxx1r2d81m \
 #    10.0.1.67:2377
 echo "$INIT_COMMAND_RESULTS"
-IFS='\s' read -ra BITS <<< "$INIT_COMMAND_RESULTS"    #Convert string to array
+IFS=' ' read -ra BITS <<< "$INIT_COMMAND_RESULTS"    #Convert string to array
 #Print all names from array
 for i in "${BITS[@]}"; do
     echo "Bit: " $i
 done
+echo "Token: " ${BITS[4]}
 echo " "
 echo "Run this command to add instances to the swarm:"
 echo "docker-machine ssh $APP_NAME-node-0 'sudo docker swarm join --token TOKEN_FROM_THE_MASTER_SECTION $MASTER_INTERNAL_IP:2377'"
