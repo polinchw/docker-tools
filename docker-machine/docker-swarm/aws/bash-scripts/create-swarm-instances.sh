@@ -65,5 +65,6 @@ echo " "
 COUNTER=0
 while [  $COUNTER -lt $NODES ]; do
        docker-machine create --driver amazonec2 --amazonec2-access-key $AWS_ACCESS_KEY_ID --amazonec2-secret-key $AWS_SECRET_ACCESS_KEY --amazonec2-vpc-id $AWS_VPC_ID -amazonec2-subnet-id $SUB_NET --amazonec2-ami $AMI_ID --amazonec2-security-group $SEC_GROUP_ID --amazonec2-ssh-user ubuntu $APP_NAME-node-$COUNTER
+       sleep 20
        let COUNTER=COUNTER+1
 done
