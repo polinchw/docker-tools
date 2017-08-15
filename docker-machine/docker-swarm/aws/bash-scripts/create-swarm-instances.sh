@@ -39,7 +39,7 @@ echo "$APP_NAME-swarm-master internal ip:"
 echo "$MASTER_INTERNAL_IP"
 #init the swarm...
 echo "Init the swarm:"
-INIT_COMMAND="docker-machine ssh $APP_NAME-swarm-master 'docker swarm init --advertise-addr $MASTER_INTERNAL_IP:2377'"
+INIT_COMMAND="docker-machine ssh $APP_NAME-swarm-master 'docker swarm init --listen-addr $MASTER_INTERNAL_IP:2377'"
 echo "Init command: $INIT_COMMAND"
 sleep 30
 INIT_COMMAND_RESULTS=$(eval $INIT_COMMAND)
