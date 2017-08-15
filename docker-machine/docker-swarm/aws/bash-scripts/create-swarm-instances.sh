@@ -42,10 +42,13 @@ echo "Init the swarm:"
 INIT_COMMAND="docker-machine ssh $APP_NAME-swarm-master 'sudo docker swarm init --advertise-addr $MASTER_INTERNAL_IP'"
 echo "Init command: $INIT_COMMAND"
 INIT_COMMAND_RESULTS=$(eval $INIT_COMMAND)
+echo " "
 echo "swarm init results:"
 echo "$INIT_COMMAND_RESULTS"
+echo " "
 echo "Run this command to add instances to the swarm:"
 echo "docker-machine ssh $APP_NAME-node-0 'sudo docker swarm join --token TOKEN_FROM_THE_MASTER_SECTION $MASTER_INTERNAL_IP:2377'"
+echo " "
 echo "Run this command to add a Docker Service to the swarm:"
 echo "docker-machine ssh $APP_NAME-swarm-master 'sudo docker service create --replicas 2 --name $APP_NAME -p:8080:8080 $APP_REG/$APP_NAME'"
 
