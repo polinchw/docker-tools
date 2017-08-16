@@ -44,9 +44,7 @@ sleep 30
 INIT_COMMAND_RESULTS=$(eval $INIT_COMMAND)
 echo " "
 echo "swarm init results:"
-echo " "
-echo "Run this command to add instances to the swarm:"
-echo "docker-machine ssh $APP_NAME-node-0 'sudo docker swarm join --token TOKEN_FROM_THE_MASTER_SECTION $MASTER_INTERNAL_IP:2377'"
+echo $INIT_COMMAND_RESULTS
 echo " "
 echo "Creating Swarm Instances..."
 COUNTER=0
