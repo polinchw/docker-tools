@@ -5,7 +5,6 @@ Provision Docker containers on Docker Swarm with the help of Docker Machine.  Th
 - Docker Machine
 - Subnet setup 
 - Create a Docker Swarm master and instances
-- Join Swarm worker instances to the Swarm Master
 - Run a Docker Service on your new swarm
 - Add a load balancer
 
