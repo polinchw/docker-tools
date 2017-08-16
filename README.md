@@ -38,60 +38,12 @@ You can use Docker Machine to control all of your Docker Swarms.
 
   https://github.com/polinchw/docker-tools  
 
-- Run the following script on the Docker Machine:
-
-  https://github.com/polinchw/docker-tools/blob/master/docker-machine/docker-swarm/aws/bash-scripts/create-swarm-instances.sh
+- Run the following script on the Docker Machine:  
   
-- ssh into the swarm master:
+chmod u+x docker-tools/docker-machine/docker-swarm/aws/bash-scripts/create-swarm-instances.sh 
 
-  docker-machine ssh SWARM-MASTER
-  
-- Determine the internal IP of the swarm master.  In this case the IP is 10.0.0.99.  You can figure this out by running  
-  ifconfig:
+/docker-tools/docker-machine/docker-swarm/aws/bash-scripts/create-swarm-instances.sh AKIAIPU52SG4FYHX5BKA xxxx vpc-9dc174e4 subnet-8102b5ad polinchw run-helloworld 1 ami-f413208f AppSecurityGroup
 
-  ubuntu@helloworld-swarm-master:~$ ifconfig
-  docker0   Link encap:Ethernet  HWaddr 02:42:32:78:71:25  
-          inet addr:172.17.0.1  Bcast:0.0.0.0  Mask:255.255.0.0
-          inet6 addr: fe80::42:32ff:fe78:7125/64 Scope:Link
-          UP BROADCAST MULTICAST  MTU:1500  Metric:1
-          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:8 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:0 
-          RX bytes:0 (0.0 B)  TX bytes:648 (648.0 B)
-
-  docker_gwbridge Link encap:Ethernet  HWaddr 02:42:90:12:4f:32  
-          inet addr:172.18.0.1  Bcast:0.0.0.0  Mask:255.255.0.0
-          inet6 addr: fe80::42:90ff:fe12:4f32/64 Scope:Link
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:110 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:116 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:0 
-          RX bytes:7280 (7.2 KB)  TX bytes:42868 (42.8 KB)
-
-  eth0      Link encap:Ethernet  HWaddr 12:cd:29:ae:fc:44  
-          inet addr:10.0.0.99  Bcast:10.0.0.255  Mask:255.255.255.0
-          inet6 addr: fe80::10cd:29ff:feae:fc44/64 Scope:Link
-          UP BROADCAST RUNNING MULTICAST  MTU:9001  Metric:1
-          RX packets:424905 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:148727 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000 
-          RX bytes:619607702 (619.6 MB)  TX bytes:11267795 (11.2 MB)
-
-  
-- Run this command on the swarm master:   
-
-  sudo docker swarm init --advertise-addr IP-ADDRESS-OF-SWARM-MASTER (10.0.0.99 in this example)
-  
-  Write down the token given out for the swarm to use in the next section.
-  
-## Join Swarm worker instances to the master
-- ssh into each worker instance of the swarm from the Docker Machine with this command:
- 
-  docker-machine ssh SWARM-WORKER-NODE
-  
-  Once on the worker run this command:
-  
-  sudo docker swarm join --token TOKEN_FROM_THE_MASTER_SECTION IP-ADDRESS-OF-SWARM-MASTER:2377
 
 ## Run a Docker Service on your new swarm
 - ssh into the swarm master:
