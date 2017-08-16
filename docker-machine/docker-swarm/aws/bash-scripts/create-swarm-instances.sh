@@ -63,4 +63,4 @@ while [  $COUNTER -lt $NODES ]; do
 done
 echo " "
 echo "Run this command to add a Docker Service to the swarm:"
-echo "docker-machine ssh $APP_NAME-swarm-master 'sudo docker service create --replicas 2 --name $APP_NAME -p 8080:8080 $APP_REG/$APP_NAME'"
+echo "docker-machine ssh $APP_NAME-swarm-master 'docker service create --replicas 2 --name $APP_NAME -p 8080:8080 $APP_REG/$APP_NAME'"
