@@ -28,7 +28,6 @@ docker-machine create --driver amazonec2 --amazonec2-access-key $AWS_ACCESS_KEY_
 sleep 20
 #Create Swarm Instances
 
-
 #Figure out the ports then init the Swarm...
 MASTER_IPS=$(docker-machine ssh $APP_NAME-swarm-master 'hostname -I')
 IFS=', ' read -r -a array <<< "$MASTER_IPS"
@@ -45,25 +44,11 @@ sleep 30
 INIT_COMMAND_RESULTS=$(eval $INIT_COMMAND)
 echo " "
 echo "swarm init results:"
-#Parse INIT_COMMAND_RESULTS for the token;
-#    docker swarm join \
-#    --token SWMTKN-1-01ifqiy6q1nrq8uh48ajen568058sxz9oo78bge7taxqrfgqqa-ba7swkzlr0segdflxx1r2d81m \
-#    10.0.1.67:2377
-echo "$INIT_COMMAND_RESULTS"
-IFS=' ' read -ra BITS <<< "$INIT_COMMAND_RESULTS"    #Convert string to array
-#Print all names from array
-for i in "${BITS[@]}"; do
-    echo "Bit: " $i
-done
-echo "Token: " ${BITS[4]}
 echo " "
 echo "Run this command to add instances to the swarm:"
 echo "docker-machine ssh $APP_NAME-node-0 'sudo docker swarm join --token TOKEN_FROM_THE_MASTER_SECTION $MASTER_INTERNAL_IP:2377'"
 echo " "
-echo "Run this command to add a Docker Service to the swarm:"
-echo "docker-machine ssh $APP_NAME-swarm-master 'sudo docker service create --replicas 2 --name $APP_NAME -p:8080:8080 $APP_REG/$APP_NAME'"
-echo " "
-#echo "Creating Swarm Instances..."
+echo "Creating Swarm Instances..."
 COUNTER=0
 while [  $COUNTER -lt $NODES ]; do
        docker-machine create --driver amazonec2 --amazonec2-access-key $AWS_ACCESS_KEY_ID --amazonec2-secret-key $AWS_SECRET_ACCESS_KEY --amazonec2-vpc-id $AWS_VPC_ID -amazonec2-subnet-id $SUB_NET --amazonec2-ami $AMI_ID --amazonec2-security-group $SEC_GROUP_ID --amazonec2-ssh-user ubuntu $APP_NAME-node-$COUNTER
@@ -78,3 +63,6 @@ while [  $COUNTER -lt $NODES ]; do
        echo "Join command resuls: $JOIN_COMMAND_RESULTS"
        let COUNTER=COUNTER+1
 done
+echo " "
+echo "Run this command to add a Docker Service to the swarm:"
+echo "docker-machine ssh $APP_NAME-swarm-master 'sudo docker service create --replicas 2 --name $APP_NAME -p 8080:8080 $APP_REG/$APP_NAME'"
