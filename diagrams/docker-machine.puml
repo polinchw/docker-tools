@@ -40,14 +40,15 @@ cloud {
 [Dev Ops] --> [Portainer]
 note left
   Dev Ops can use
+  the Portainer GUI
   to deploy the
   Docker Services
 end note
 [Dev Ops] --> [Docker Machine]
 note left
   Dev Ops can use
-  to create
-  Docker Swarms
+  the Docker Machine CLI
+  to create Docker Swarms
 end note
 
 [Docker Container 1] <-> [Docker Container 2]
