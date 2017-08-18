@@ -55,7 +55,7 @@ chmod u+x docker-tools/docker-machine/docker-swarm/aws/bash-scripts/create-swarm
   
 - Run a Docker Service on the swarm with this (example) command:
 
-  sudo docker service create --replicas 2 --name helloworld -p:8080:8080 polinchw/run-helloworld
+  sudo docker service create --replicas 2 --name helloworld -p 8080:8080 polinchw/run-helloworld
   
 - You can also run all the commands from the Docker Machine.  This could be very useful if you want script the whole deployment:
 
