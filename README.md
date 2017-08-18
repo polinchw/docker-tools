@@ -8,6 +8,10 @@ Provision Docker containers on Docker Swarm with the help of Docker Machine.  Th
 - Run a Docker Service on your new swarm
 - Add a load balancer
 
+## Diagram
+![alt text](https://github.com/polinchw/docker-tools/blob/master/diagrams/docker-machine.png)
+
+
 ## Docker Machine
 You can use Docker Machine to control all of your Docker Swarms.  
 - Create a Linux VM/EC2 Instance that has the Docker runtime installed.
