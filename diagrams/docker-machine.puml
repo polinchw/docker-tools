@@ -1,0 +1,57 @@
+@startuml
+
+title Deploy with Docker Machine
+
+
+package "AWS VPC" {
+  folder "Non-Public Facing" {
+    folder "App Server Subnet" {
+       folder "Linux VM2" {
+         [Docker Container 2]
+          note right
+            Docker Machine has
+            control over the
+            remote VM to create
+            Docker Swarms and
+            Docker Services on
+          end note
+       }
+       folder "Linux VM1" {
+         [Docker Container 1]
+       }
+    }
+  }
+  folder "Public Facing" {
+    folder "Web Server Subnet" {
+       folder "Linux VM" {
+         [Docker Machine] --> [Docker Container 1]
+         [Docker Machine] --> [Docker Container 2]
+         [Portainer] --> [Docker Machine]
+       }
+
+    }
+  }
+}
+
+cloud {
+  [Dev Ops]
+}
+
+[Dev Ops] --> [Portainer]
+note left
+  Dev Ops can use
+  to deploy the
+  Docker Services
+end note
+[Dev Ops] --> [Docker Machine]
+note left
+  Dev Ops can use
+  to create
+  Docker Swarms
+end note
+
+[Docker Container 1] <-> [Docker Container 2]
+
+
+
+@enduml
