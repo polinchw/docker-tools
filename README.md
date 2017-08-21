@@ -59,7 +59,7 @@ chmod u+x docker-tools/docker-machine/docker-swarm/aws/bash-scripts/create-swarm
   
 - You can also run all the commands from the Docker Machine.  This could be very useful if you want script the whole deployment:
 
-  docker-machine ssh docker-test-swarm-master 'docker service create --replicas 2 --name docker-test p:8080:8080   
+  docker-machine ssh docker-test-swarm-master 'docker service create --replicas 2 --name docker-test -p 8080:8080   
   polinchw/run-helloworld'
 
 ## Add a load balancer
